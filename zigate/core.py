@@ -475,6 +475,13 @@ class ZiGate(object):
         for addr in to_remove:
             self._remove_device(addr)
 
+    def remove_all_devices(self):
+        '''
+        remove all devices configured in zigate
+        '''
+        for addr in [device.addr for device in self._devices.values()]:
+            self._remove_device(addr)
+
     def _remove_device(self, addr):
         '''
         remove device from addr
